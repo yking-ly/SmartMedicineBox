@@ -1,6 +1,5 @@
 # 🏥 Smart Medicine Box
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/)
 [![Next.js](https://img.shields.io/badge/Next.js-15.5.2-black?logo=next.js)](https://nextjs.org/)
 [![ESP32](https://img.shields.io/badge/ESP32-DevKit-red)](https://www.espressif.com/)
@@ -16,7 +15,6 @@ An AI-driven IoT healthcare solution that bridges the gap between medication adh
 - [Overview](#-overview)
 - [Features](#-features)
 - [System Architecture](#-system-architecture)
-- [Hardware Components](#-hardware-components)
 - [Tech Stack](#-tech-stack)
 - [Installation](#-installation)
 - [Usage](#-usage)
@@ -24,8 +22,6 @@ An AI-driven IoT healthcare solution that bridges the gap between medication adh
 - [API Endpoints](#-api-endpoints)
 - [Team](#-team)
 - [Future Enhancements](#-future-enhancements)
-- [References](#-references)
-- [License](#-license)
 
 ---
 
@@ -42,8 +38,8 @@ Medication non-adherence affects nearly **50% of chronic disease patients** glob
 
 - ✅ **100%** data synchronization accuracy
 - ✅ **100%** successful reminder delivery (4-second latency)
-- ✅ **1.3 seconds** average AI response time
-- ✅ **95%** system reliability in experimental testing
+- ✅ **7 seconds** average AI response time
+- ✅ **99%** system reliability in experimental testing
 
 ---
 
@@ -62,7 +58,7 @@ Medication non-adherence affects nearly **50% of chronic disease patients** glob
 - 📱 **Multi-Device Dashboard**: Monitor multiple patients from a single interface
 - 📈 **Visual Analytics**: Interactive charts showing adherence trends and patterns
 - ⏰ **Remote Reminder Scheduling**: Configure medication schedules with custom repeat cycles
-- 💬 **Bidirectional Communication**: Send messages directly to patient devices
+- 💬 **Communication**: Send messages directly to patient devices
 - 🤖 **AI Assistant**: Automated log summaries and conversational query interface
 - 🔐 **Secure Authentication**: Google OAuth with whitelisted access control
 
@@ -89,41 +85,6 @@ Medication non-adherence affects nearly **50% of chronic disease patients** glob
    │ • Piezo Buzzer  │          │ • Recharts        │
    │ • Wi-Fi Module  │          │ • AI Integration  │
    └─────────────────┘          └───────────────────┘
-```
-
-### Data Flow
-
-1. **Device Registration**: ESP32 authenticates anonymously and registers using MAC address
-2. **Event Logging**: Button presses trigger timestamped events in Firebase
-3. **Reminder Fetching**: Device polls for reminders every 5 seconds, refreshes cache every 5 minutes
-4. **Caregiver Actions**: Web portal updates propagate to devices in real-time
-5. **AI Analysis**: OpenRouter API processes logs and generates insights
-
----
-
-## 🔧 Hardware Components
-
-| Component | Specification | Quantity | Price (INR) |
-|-----------|--------------|----------|-------------|
-| ESP32 DevKit v1 | 38-pin, Dual-core 240MHz, Wi-Fi/BT | 1 | ₹450 |
-| 16×2 LCD with I2C | Backlit, I2C interface | 1 | ₹250 |
-| Push Buttons | Tactile switches | 2 | ₹40 |
-| Piezo Buzzer | 3-5V, 85-90dB | 1 | ₹20 |
-| Breadboard | 830 points | 1 | ₹90 |
-| Jumper Wires | Male-to-Male | 3 packs | ₹300 |
-| **Total Cost** | | | **₹1,150** |
-
-### Circuit Diagram
-
-```
-ESP32 DevKit v1
-├── GPIO 22 (SCL) ────────► LCD I2C SCL
-├── GPIO 21 (SDA) ────────► LCD I2C SDA
-├── GPIO 26 ──────────────► Medicine Button (Pull-up)
-├── GPIO 25 ──────────────► Emergency Button (Pull-up)
-├── GPIO 13 ──────────────► Buzzer (+)
-├── 3.3V ─────────────────► LCD VCC
-└── GND ──────────────────► Common Ground
 ```
 
 ---
@@ -391,41 +352,12 @@ Conversational AI for querying patient data.
 ### Short-term
 - [ ] SMS/Email notifications (Twilio/SendGrid integration)
 - [ ] Mobile application (React Native)
-- [ ] Biometric patient verification (fingerprint sensor)
 - [ ] Battery backup system for power outages
-- [ ] Multi-language support
 
 ### Long-term
 - [ ] Automated pill dispensing mechanism
 - [ ] Weight sensors for pill counting
 - [ ] Fall detection and activity monitoring
-- [ ] Integration with hospital EHR/EMR systems
-- [ ] Voice command support (speech recognition)
-- [ ] Predictive analytics for adherence forecasting
-- [ ] Blockchain-based medical record security
-- [ ] Wearable device integration (smartwatch sync)
-
----
-
-## 📚 References
-
-1. IQVIA Institute for Human Data Science, "The Global Use of Medicines: Outlook to 2028," IQVIA, 2024.
-
-2. R. L. Cutler et al., "Economic impact of medication non-adherence by disease groups: a systematic review," *BMJ Open*, vol. 8, no. 1, 2018.
-
-3. Zara Nasir et al., "Design of a Smart Medical Box for Automatic Pill Dispensing and Health Monitoring," *Sensors*, 2023.
-
-4. S. Deshpande et al., "IoT Connected Smart Pill Box," *IJRASET*, 2022.
-
-5. Rajalakshmi M et al., "IoT based Medicine Box Assistance for Elderly People," *IRJAEM*, vol. 2, no. 07, July 2024.
-
-6. Abhijith M et al., "IoT-Based Smart Medicine Dispenser: A Technological Solution for Medication," *Journal of Neonatal Surgery*, Vol. 14 No. 14S, 2025.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
